@@ -1,17 +1,21 @@
 <!Doctype HTML>
 <html>
 <head>
-	<title>So you wanna buy a house?</title>
+    <title>So you wanna buy a house?</title>
 </head>
 <body>
-	<h1>So you wanna buy a house?<h1>
-		<h2>Here is what you need to do:</h2>
-		{% for item in items %}
-		<h3>{{item.title}}</h3>
-			<p>{{item.description}}</p>
-			<p>Due: {{item.due_date}}</p>
-			<hr />
-		{% endfor %}
+    <h1>So you wanna buy a house?<h1>
+        <h2>Here is what you need to do:</h2>
+        {% for item in items %}
+            {% if not item.is_complete %}
+        		<h3>{{item.title}}</h3>
+            		<p>{{item.description}}</p>
+            		<p>Due: {{item.due_date}}</p>
+            		<hr />
+            {% elif item.is_complete %}
+        		<h3>{{item.title}}</h3>            	
+            {% endif %}
+        {% endfor %}
 
 
 </body>
