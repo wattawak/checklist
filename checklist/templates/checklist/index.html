@@ -9,14 +9,15 @@
         {% for item in items %}
             {% if not item.is_complete %}
         		<h3>{{item.title}}</h3>
-            		<p>{{item.description}}</p>
+            		<p>Details: {{item.description}}</p>
             		<p>Due: {{item.due_date}}</p>
-            		<hr />
-            {% elif item.is_complete %}
+            {% endif %}
+        {% endfor %}
+        <hr />
+        {% for item in items %}
+            {% if item.is_complete %}
         		<h3>{{item.title}}</h3>            	
             {% endif %}
         {% endfor %}
-
-
 </body>
 </html>
